@@ -23,7 +23,7 @@ function scrollToRecipies(){
     var element = document.getElementById("main");
     var headerOffset = 20;
     var offsetPosition = element.offsetTop + element.offsetHeight + headerOffset;
-    console.log(offsetPosition);
+    // console.log(offsetPosition);
     $(window).scrollTop(offsetPosition);
 }
 
@@ -62,7 +62,7 @@ function changePage(page)
     // if (page > numPages()) current_page = 1;
     // page = current_page;
 
-    console.log(page,numPages());
+    // console.log(page,numPages());
 
     index = (page-1)*3
     total = Recipes.length
@@ -128,11 +128,13 @@ function numPages()
 
 
 $(document).ready(function () {
-    $(window).load(function(){
+    $(window).on('load', function() {
         $(window).scrollTop(0);
         AOS.init();
         AOS.refresh();
+        console.log('All assets are loaded')
     })
+    
     
     changePage(1);
     $(".overlay p").html(comment[0]);
@@ -207,13 +209,13 @@ $(document).ready(function () {
     });
 
     $('#btn_prev').on('click', function(){
-        console.log("Hello");
+        // console.log("Hello");
         scrollToRecipies();
         prevPage();
         AOS.refresh();
     });
     $('#btn_next').on('click', function(){
-        console.log("Hello");
+        // console.log("Hello");
         scrollToRecipies();
         nextPage();
         AOS.refresh();
